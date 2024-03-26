@@ -1,0 +1,24 @@
+$zoom: 0.6;
+
+@page {
+  size: 30in 30in;
+  margin: 27mm 16mm 27mm 16mm;
+}
+
+// body {
+//   --vh: 0.1rem;
+
+//   height: calc((1 / $zoom) * 100vh);
+//   width: calc((1 / $zoom) * 100vw);
+//   transform: scale($zoom);
+//   transform-origin: 0 0;
+//   // add prefixed versions too.
+// }
+
+body {
+  // background-image: url('back.png');
+  width: 100vw;
+  height: 100vh;
+  // background: url('back.png');
+  background-size: cover;
+}
