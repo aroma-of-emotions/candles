@@ -1,34 +1,26 @@
 <script>
-  // Import Carbon Components and any other scripts here
-  // import { Header, HeaderName, HeaderNavigation, HeaderMenuItem } from 'carbon-components-svelte';
+  import { Button, Column, Grid, Row } from 'carbon-components-svelte';
 </script>
 
-<style>
-  /* Additional styles or UnoCSS utilities */
-</style>
+<Grid>
+  <Row>
+    <Column>
+      <h1>Welcome to Our Site</h1>
+      <p>
+        This is a brief introduction or mission statement. Explore our products, learn about our
+        company, and contact us for more information.
+      </p>
+      <Button href="/candles/about">Learn More About Us</Button>
+    </Column>
+  </Row>
 
-<!-- <Header aria-label="Company Name">
-  <HeaderName href="/" prefix="Company">
-    Name
-  </HeaderName>
-  <HeaderNavigation aria-label="Main Navigation">
-    <HeaderMenuItem href="/about">О нас</HeaderMenuItem>
-    <HeaderMenuItem href="/catalog">Каталог</HeaderMenuItem>
-    <HeaderMenuItem href="/partners">Партнёрам</HeaderMenuItem>
-    <HeaderMenuItem href="/delivery">Доставка и оплата</HeaderMenuItem>
-    <HeaderMenuItem href="/contacts">Контакты</HeaderMenuItem>
-    <HeaderMenuItem href="/cart">Моя корзина</HeaderMenuItem>
-  </HeaderNavigation>
-</Header> -->
+  <!-- Add additional sections for About Us, Catalog, Partners, etc., here. -->
+  <Row>
+    <Column>
+      <h2>About Us</h2>
+      <p>Information about the company, mission, and advantages.</p>
+    </Column>
+  </Row>
 
-<main>
-  <!-- Main content blocks -->
-  <section>
-    <h1>Welcome to Our Site</h1>
-    <!-- Implement the content blocks for "О нас", "Каталог", etc. -->
-  </section>
-</main>
-
-<footer>
-  <!-- Footer content here -->
-</footer>
+  <!-- Repeat for other sections as needed -->
+</Grid>
