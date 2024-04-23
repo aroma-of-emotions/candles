@@ -23,19 +23,19 @@
       <div class=" mt-10 col-span-2">
         <div class="flex flex-wrap items-center">
           <div class=" w-1/4 px-4">
-            <img class="w-full h-full object-contain" src="1.png" alt="Artistic representation" />
+            <img class="w-full h-full object-contain" src="/candles/1.png" alt="Artistic representation" />
             <p class="mt-2 text-center text-sm text-white">Наслаждайтесь моментом</p>
           </div>
           <div class=" w-1/2 px-4">
             <img
               class="rounded-t-full w-full h-1/2 object-contain"
-              src="2.jpeg"
+              src="/candles/2.jpeg"
               alt="Embossed candle"
             />
             <p class="mt-2 text-center text-sm text-white">Создайте любимую атмосферу</p>
           </div>
           <div class=" w-1/4 px-4">
-            <img class="w-full h-full object-contain" src="3.png" alt="Candle with stars" />
+            <img class="w-full h-full object-contain" src="/candles/3.png" alt="Candle with stars" />
             <p class="mt-2 text-center text-sm text-white">Изготовлены с любовью</p>
           </div>
         </div>

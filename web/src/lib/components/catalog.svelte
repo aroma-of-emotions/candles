@@ -18,25 +18,25 @@
   <div class="col-span-2">
     <div class="grid grid-cols-2 gap-x-30 gap-y-20">
       <CandleItem
-        img="c1.png"
+        img="/candles/c1.png"
         price="1599 ₽"
         name="Титаник"
         description="Запах: нежный аромат розы и мускуса. <br/>Вид искусства: фильм"
       />
       <CandleItem
-        img="c1.png"
+        img="/candles/c1.png"
         price="1599 ₽"
         name="Титаник"
         description="Запах: нежный аромат розы и мускуса. <br/>Вид искусства: фильм"
       />
       <CandleItem
-        img="c1.png"
+        img="/candles/c1.png"
         price="1599 ₽"
         name="Титаник"
         description="Запах: нежный аромат розы и мускуса. <br/>Вид искусства: фильм"
       />
       <CandleItem
-        img="c1.png"
+        img="/candles/c1.png"
         price="1599 ₽"
         name="Титаник"
         description="Запах: нежный аромат розы и мускуса. <br/>Вид искусства: фильм"
