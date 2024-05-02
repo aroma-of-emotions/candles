@@ -1,3 +1,20 @@
-<button class="border-none bg-#ffbd59 py-4 px-10 hover:bg-#ffbd59-500 transition duration-300">
+<button class="button">
   <slot />
 </button>
+
+<style>
+  .button {
+    border: none;
+    background-color: #ffbd59;
+    padding: 16px 40px;
+    transition: background-color 0.3s;
+  }
+
+  .button:hover {
+    background-color: #d9a048; /* Adjusted for a darker hover effect */
+  }
+
+  .button:active {
+    background-color: #c48b3a; /* Even darker for the click effect */
+  }
+</style>

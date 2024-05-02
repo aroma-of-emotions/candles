@@ -2,7 +2,7 @@
   import Button from './Button.svelte';
   import BotCandle from './bot-candle.svelte';
   import CandleItem from './candle-item.svelte';
-  import ChevronDown from 'carbon-icons-svelte/lib/ChevronDown.svelte';
+  import ChevronDown from "carbon-icons-svelte/lib/ArrowDown.svelte";
 </script>
 
 <div id="catalog" class="px-30 py-20">

@@ -1,12 +1,12 @@
 <script lang="ts">
   import 'uno.css';
   import 'carbon-components-svelte/css/white.css';
-  import '@fontsource/yeseva-one';
+  import '@fontsource-variable/rubik';
   import './global.scss';
   import Logo from '$lib/components/logo.svelte';
 </script>
 
-<header class=" py-4 my-0 bg-#ffe6d5 fixed top-0 w-full z-50">
+<header class=" py-4 my-0 bg-#ffe6d5 fixed top-0 w-full z-50 shadow">
   <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
     <div>
       <Logo />
@@ -17,7 +17,7 @@
         <li>
           <a
             href="#about"
-            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             О нас
           </a>
@@ -25,7 +25,7 @@
         <li>
           <a
             href="#catalog"
-            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             Каталог
           </a>
@@ -33,7 +33,7 @@
         <li>
           <a
             href="#partners"
-            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             Партнерам
           </a>
@@ -41,7 +41,7 @@
         <li>
           <a
             href="#delivery"
-            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             Доставка и оплата
           </a>
@@ -49,7 +49,7 @@
         <li>
           <a
             href="#contacts"
-            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             Контакты
           </a>
@@ -60,19 +60,19 @@
     <div class="flex items-center space-x-4">
       <a
         href="#welcome"
-        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
       >
         Корзина
       </a>
       <a
         href="#welcome"
-        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
       >
         История заказов
       </a>
       <a
         href="#welcome"
-        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
       >
         Вход
       </a>
@@ -84,12 +84,13 @@
   <slot />
 </main>
 
-<footer class="bg-beige-100 text-gray-800 p-4 w-full">
-  <div class="mx-20 flex justify-between items-center">
+<footer class="bg-beige-100 text-gray-800 py-4 w-full">
+  <div class="mx-30 flex justify-between items-center">
     <div class="flex flex-col items-center">
-      <Logo />
-      <br />
-      © 2024
+      <div class="flex items-center gap-3">
+        <Logo />
+        <p>© 2024</p>
+      </div>
     </div>
     <div class="flex space-x-4">
       <a href="#about" class="hover:text-gray-600">О НАС</a>
@@ -114,9 +115,5 @@
   }
   :global(.bx--header__name) {
     cursor: pointer;
-  }
-
-  :global(body) {
-    font-family: 'Yeseva One', system-ui;
   }
 </style>

@@ -2,11 +2,10 @@
   import Button from './Button.svelte';
   import BotCandle from './bot-candle.svelte';
   import CandleItem from './candle-item.svelte';
-  import ChevronDown from 'carbon-icons-svelte/lib/ChevronDown.svelte';
   import { TextInput } from 'carbon-components-svelte';
 </script>
 
-<div  id="gpt" class="grid grid-cols-3 pl-30 py-20">
+<div id="gpt" class="grid grid-cols-3 pl-30 py-20">
   <div>
     <h1 class="font-bold mb-6">Не уверены в выборе?</h1>
     <p class="mb-8">Наш помощник ИИ подберёт вам нужный дизайн и аромат!</p>

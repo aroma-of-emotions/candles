@@ -17,7 +17,7 @@
     <!-- Catalog button -->
     <div class="mt-8">
       <Button>
-        <a href="#catalog">Каталог</a>
+        <a href="#catalog" class="text-white">Каталог</a>
       </Button>
     </div>
   </div>

@@ -2,7 +2,6 @@
   import Button from './Button.svelte';
   import BotCandle from './bot-candle.svelte';
   import CandleItem from './candle-item.svelte';
-  import ChevronDown from 'carbon-icons-svelte/lib/ChevronDown.svelte';
   import { TextInput } from 'carbon-components-svelte';
 </script>
 

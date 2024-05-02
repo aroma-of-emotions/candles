@@ -1,5 +1,5 @@
-<div class="flex flex-col text-center items-center">
-  <div class="h-30px w-30px">
+<div class="flex text-center items-center gap-2">
+  <div class="h-50px w-20px">
     <svg
       class="svg-responsive"
       width="20"
@@ -40,9 +40,10 @@
       </defs>
     </svg>
   </div>
-
-  <span class="text-7px mt-5px">АРОМАТ ВАШИХ</span>
-  <span class="text-7px">ЭМОЦИЙ</span>
+  <div class="flex flex-col">
+    <span class="text-20p12x mt-5px">АРОМАТ ВАШИХ</span>
+    <span class="text-20p12x">ЭМОЦИЙ</span>
+  </div>
 </div>
 
 <style>

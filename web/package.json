@@ -96,6 +96,8 @@
   "dependencies": {
     "@cornerstonejs/streaming-image-volume-loader": "^1.1.5",
     "@cornerstonejs/tools": "^1.1.5",
+    "@fontsource-variable/rubik": "^5.0.22",
+    "@fontsource/poppins": "^5.0.14",
     "@tauri-apps/api": "^1.5.1",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-serve": "^1.1.0",
