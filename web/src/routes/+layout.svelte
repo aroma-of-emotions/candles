@@ -16,7 +16,7 @@
       <ul class="flex space-x-4">
         <li>
           <a
-            href="#about"
+            href="/candles#about"
             class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             О нас
@@ -24,7 +24,7 @@
         </li>
         <li>
           <a
-            href="#catalog"
+            href="/candles#catalog"
             class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             Каталог
@@ -32,7 +32,7 @@
         </li>
         <li>
           <a
-            href="#partners"
+            href="/candles#partners"
             class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             Партнерам
@@ -40,7 +40,7 @@
         </li>
         <li>
           <a
-            href="#delivery"
+            href="/candles#delivery"
             class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             Доставка и оплата
@@ -48,7 +48,7 @@
         </li>
         <li>
           <a
-            href="#contacts"
+            href="/candles#contacts"
             class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
           >
             Контакты
@@ -59,19 +59,19 @@
 
     <div class="flex items-center space-x-4">
       <a
-        href="#welcome"
+        href="/candles/cart"
         class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
       >
         Корзина
       </a>
       <a
-        href="#welcome"
+        href="/candles/history"
         class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
       >
         История заказов
       </a>
       <a
-        href="#welcome"
+        href="/candles/login"
         class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
       >
         Вход
