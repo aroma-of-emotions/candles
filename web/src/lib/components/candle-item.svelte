@@ -1,5 +1,9 @@
 <script lang="ts">
+  import axios from 'axios';
+
   import Button from './Button.svelte';
+  import { goto } from '$app/navigation';
+  export let candleId: number;
   export let img: string;
   export let price: string;
   export let name: string;
@@ -12,10 +16,33 @@
     {price}
   </p>
   <p class="font-bold">
-    "{name}"
+    {name}
   </p>
   <p>
     {@html description}
   </p>
-  <Button>Купить</Button>
+  <Button
+    on:click={async () => {
+      try {
+        const response = await axios.post(
+          'http://localhost:3000/api/cart',
+          {
+            candleId,
+            quantity: 1
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          }
+        );
+        goto('/candles/cart');
+        console.log(response);
+      } catch (error) {
+        console.error('Error fetching candles:', error);
+      }
+    }}
+  >
+    Добавить в корзину
+  </Button>
 </div>

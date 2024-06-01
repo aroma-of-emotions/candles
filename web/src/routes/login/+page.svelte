@@ -5,6 +5,7 @@
   import Button from '$lib/components/Button.svelte';
   import { TextInput } from 'carbon-components-svelte';
   import { PasswordInput } from 'carbon-components-svelte';
+  import { reloadPage } from '$lib/utils';
 
   let email: string = '';
   let password: string = '';
@@ -23,11 +24,13 @@
       if (!response.ok) {
         throw new Error((await response.text()) || 'Login failed');
       }
-
-      const { token } = await response.json();
+      const { token, user } = await response.json();
+      localStorage.setItem('email', email);
+      localStorage.setItem('user', JSON.stringify(user));
       localStorage.setItem('token', token);
       goto('/candles');
-    } catch (err) {
+      reloadPage();
+    } catch (err: any) {
       error = err.message;
     }
   }

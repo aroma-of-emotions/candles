@@ -13,20 +13,14 @@
     </div>
 
     <nav>
-      <ul class="flex space-x-4">
+      <ul class="flex space-x-4 text-center items-center justify-center">
         <li>
-          <a
-            href="/candles#about"
-            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
-          >
+          <a href="/candles#about" class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md">
             О нас
           </a>
         </li>
         <li>
-          <a
-            href="/candles#catalog"
-            class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
-          >
+          <a href="/candles#catalog" class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md">
             Каталог
           </a>
         </li>
@@ -58,24 +52,21 @@
     </nav>
 
     <div class="flex items-center space-x-4">
-      <a
-        href="/candles/cart"
-        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
-      >
+      <a href="/candles/cart" class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md">
         Корзина
       </a>
-      <a
-        href="/candles/history"
-        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
-      >
+      <a href="/candles/profile" class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md">
         История заказов
       </a>
-      <a
-        href="/candles/login"
-        class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md"
-      >
-        Вход
-      </a>
+      {#if localStorage.getItem('email')}
+        <a href="/candles/profile" class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md">
+          {localStorage.getItem('email')}
+        </a>
+      {:else}
+        <a href="/candles/login" class="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md">
+          Вход
+        </a>
+      {/if}
     </div>
   </div>
 </header>
