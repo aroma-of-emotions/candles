@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    build: server
     ports:
       - '3000:3000'
     environment:
@@ -17,6 +17,11 @@ services:
       API_KEY: ${API_KEY}
     depends_on:
       - postgres
+
+  web:
+    build: web
+    ports:
+      - '4173:4173'
 
   postgres:
     image: postgres:13
