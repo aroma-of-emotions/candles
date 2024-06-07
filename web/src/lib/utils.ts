@@ -25,4 +25,4 @@ export interface CartItem {
   candle: Candle;
 }
 
-export const server_url = 'http://158.160.137.113:3000';
+export const server_url = 'https://d5d0nmg78fvfmna6pvtb.apigw.yandexcloud.net';
