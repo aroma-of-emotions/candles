@@ -6,12 +6,13 @@
   import CandleItem from './candle-item.svelte';
   import ChevronDown from 'carbon-icons-svelte/lib/ArrowDown.svelte';
   import type { Candle } from '$lib/utils';
+  import { server_url } from '$lib/utils';
 
   let candles: Candle[] = [];
   let len = 4;
   onMount(async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/candles');
+      const response = await axios.get(`${server_url}/api/candles`);
       candles = response.data;
     } catch (error) {
       console.error('Error fetching candles:', error);

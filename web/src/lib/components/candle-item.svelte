@@ -3,6 +3,7 @@
 
   import Button from './Button.svelte';
   import { goto } from '$app/navigation';
+  import { server_url } from '$lib/utils';
   export let candleId: number;
   export let img: string;
   export let price: string;
@@ -25,7 +26,7 @@
     on:click={async () => {
       try {
         const response = await axios.post(
-          'http://localhost:3000/api/cart',
+          `${server_url}/api/cart`,
           {
             candleId,
             quantity: 1

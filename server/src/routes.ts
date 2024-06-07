@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs';
 import config from './config';
 import { Candle, User, CartItem } from './models';
 import { authenticateToken } from './authMiddleware'; // Adjust path as necessary
+import { callYandexApi } from './gpt';
 
 const router = express.Router();
 
@@ -143,6 +144,18 @@ router.put('/cart/:itemId', authenticateToken, async (req: any, res) => {
     res.json(item);
   } catch (error) {
     res.status(500).send(error.message);
+  }
+});
+
+
+router.post('/gpt-help', async (req, res) => {
+  const userInput = req.body.text;
+  try {
+      // const iamToken = await getIamToken();
+      const response = await callYandexApi(userInput);
+      res.json({ message: 'Success', data: response });
+  } catch (error) {
+      res.status(500).json({ message: 'Error processing your request', error: error.message });
   }
 });
 

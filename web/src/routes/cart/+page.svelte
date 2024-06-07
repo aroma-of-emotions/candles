@@ -6,6 +6,7 @@
   import { Select, SelectItem, NumberInput } from 'carbon-components-svelte';
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
+  import { server_url } from '$lib/utils';
 
   let cartItems: CartItem[] = [];
   let delivery: string = 'Курьером';
@@ -18,7 +19,7 @@
 
   const fetchCartItems = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/cart', {
+      const response = await axios.get(`${server_url}/api/cart`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -33,14 +34,14 @@
     let newQuantity = +e.detail;
     try {
       if (newQuantity < 1) {
-        await axios.delete(`http://localhost:3000/api/cart/${itemId}`, {
+        await axios.delete(`${server_url}/api/cart/${itemId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
         });
       } else {
         await axios.put(
-          `http://localhost:3000/api/cart/${itemId}`,
+          `${server_url}/api/cart/${itemId}`,
           {
             quantity: newQuantity
           },

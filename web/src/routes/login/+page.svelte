@@ -6,6 +6,7 @@
   import { TextInput } from 'carbon-components-svelte';
   import { PasswordInput } from 'carbon-components-svelte';
   import { reloadPage } from '$lib/utils';
+  import { server_url } from '$lib/utils';
 
   let email: string = '';
   let password: string = '';
@@ -13,7 +14,7 @@
 
   async function login() {
     try {
-      const response = await fetch('http://localhost:3000/api/login', {
+      const response = await fetch(`${server_url}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -59,12 +60,10 @@
             />
             <PasswordInput
               id="password"
-              password
               light
               labelText="Пароль"
               placeholder="Введите ваш пароль"
               bind:value={password}
-              required
             />
             <br />
             <div>
