@@ -5,10 +5,11 @@ import config from './config';
 import { Candle, User, CartItem } from './models';
 import { authenticateToken } from './authMiddleware'; // Adjust path as necessary
 import { callYandexApi } from './gpt';
+import cors from 'cors';
 
 const router = express.Router();
 
-router.post('/register', async (req, res) => {
+router.post('/register', cors(), async (req, res) => {
   const { email, password, username } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   try {
@@ -23,7 +24,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', cors(), async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ where: { email } });
   if (!user || !(await bcrypt.compare(password, user.password || ''))) {
@@ -35,7 +36,7 @@ router.post('/login', async (req, res) => {
   res.send({ token, user });
 });
 
-router.get('/candles', async (req, res) => {
+router.get('/candles', cors(), async (req, res) => {
   try {
     let candles = await Candle.findAll();
     if (candles.length === 0) {
@@ -86,7 +87,7 @@ router.get('/candles', async (req, res) => {
   }
 });
 
-router.post('/cart', authenticateToken, async (req: any, res) => {
+router.post('/cart', cors(), authenticateToken, async (req: any, res) => {
   try {
     const { candleId, quantity } = req.body;
     const userId = req.user.id; // Assuming id is part of the JWT payload
@@ -98,7 +99,7 @@ router.post('/cart', authenticateToken, async (req: any, res) => {
 });
 
 // Get user's cart items with authentication
-router.get('/cart', authenticateToken, async (req: any, res) => {
+router.get('/cart', cors(), authenticateToken, async (req: any, res) => {
   try {
     const userId = req.user.id;
     const items = await CartItem.findAll({
@@ -112,50 +113,61 @@ router.get('/cart', authenticateToken, async (req: any, res) => {
 });
 
 // Remove item from cart with authentication
-router.delete('/cart/:itemId', authenticateToken, async (req: any, res) => {
-  try {
-    const userId = req.user.id;
-    const itemId = parseInt(req.params.itemId);
-    const deleteCount = await CartItem.destroy({
-      where: { id: itemId, userId }, // Ensure users can only delete their own items
-    });
-    if (deleteCount > 0) {
-      res.status(204).send();
-    } else {
-      res.status(404).send('Item not found');
+router.delete(
+  '/cart/:itemId',
+  cors(),
+  authenticateToken,
+  async (req: any, res) => {
+    try {
+      const userId = req.user.id;
+      const itemId = parseInt(req.params.itemId);
+      const deleteCount = await CartItem.destroy({
+        where: { id: itemId, userId }, // Ensure users can only delete their own items
+      });
+      if (deleteCount > 0) {
+        res.status(204).send();
+      } else {
+        res.status(404).send('Item not found');
+      }
+    } catch (error) {
+      res.status(500).send(error.message);
     }
-  } catch (error) {
-    res.status(500).send(error.message);
   }
-});
+);
 
 // Assuming you have an endpoint /api/cart/:itemId
-router.put('/cart/:itemId', authenticateToken, async (req: any, res) => {
-  const { itemId } = req.params;
-  const { quantity } = req.body;
-  try {
-    const item = await CartItem.findOne({
-      where: { id: itemId, userId: req.user.id },
-    });
-    if (!item) return res.status(404).send('Item not found.');
+router.put(
+  '/cart/:itemId',
+  cors(),
+  authenticateToken,
+  async (req: any, res) => {
+    const { itemId } = req.params;
+    const { quantity } = req.body;
+    try {
+      const item = await CartItem.findOne({
+        where: { id: itemId, userId: req.user.id },
+      });
+      if (!item) return res.status(404).send('Item not found.');
 
-    item.quantity = quantity;
-    await item.save();
-    res.json(item);
-  } catch (error) {
-    res.status(500).send(error.message);
+      item.quantity = quantity;
+      await item.save();
+      res.json(item);
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
   }
-});
+);
 
-
-router.post('/gpt-help', async (req, res) => {
+router.post('/gpt-help', cors(), async (req, res) => {
   const userInput = req.body.text;
   try {
-      // const iamToken = await getIamToken();
-      const response = await callYandexApi(userInput);
-      res.json({ message: 'Success', data: response });
+    // const iamToken = await getIamToken();
+    const response = await callYandexApi(userInput);
+    res.json({ message: 'Success', data: response });
   } catch (error) {
-      res.status(500).json({ message: 'Error processing your request', error: error.message });
+    res
+      .status(500)
+      .json({ message: 'Error processing your request', error: error.message });
   }
 });
 
