@@ -24,3 +24,5 @@ export interface CartItem {
   quantity: number; // Consider adding quantity if users can order multiple of the same candle
   candle: Candle;
 }
+
+export const server_url = 'https://d5d0nmg78fvfmna6pvtb.apigw.yandexcloud.net';

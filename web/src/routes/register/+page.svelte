@@ -4,6 +4,7 @@
   import { page } from '$app/stores';
   import { TextInput, PasswordInput } from 'carbon-components-svelte';
   import Button from '$lib/components/Button.svelte';
+  import { server_url } from '$lib/utils';
 
   let email: string = '';
   let password: string = '';
@@ -15,7 +16,7 @@
     try {
       if (password !== password2) throw new Error('Пароли различаются');
 
-      const response = await fetch('http://localhost:3000/api/register', {
+      const response = await fetch(`${server_url}/api/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -29,7 +30,7 @@
       }
 
       goto('/candles/login');
-    } catch (err) {
+    } catch (err: any) {
       error = err.message;
     }
   }
@@ -94,7 +95,6 @@
               labelText="Пароль"
               placeholder="Введите ваш пароль"
               bind:value={password}
-              required
             />
             <PasswordInput
               id="password-2"
@@ -102,7 +102,6 @@
               labelText="Подтверждение  пароля"
               placeholder="Потдвердите ваш пароль"
               bind:value={password2}
-              required
             />
             <br />
             {#if error}

@@ -3,12 +3,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default {
-  google: {
-    clientID: process.env.GOOGLE_CLIENT_ID || '',
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-    callbackURL: process.env.GOOGLE_CALLBACK_URL || ''
-  },
   jwtSecret: process.env.JWT_SECRET || '',
+  gpt: {
+    folder_id:  process.env.FOLDER_ID || '',
+    api_key:  process.env.API_KEY || '',
+  },
   db: {
     host: process.env.DB_HOST || '',
     port: Number(process.env.DB_PORT) || 5432,
